@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AI_Product_Interests__c</fullName>
+    <description>Interesses de produto inferidos por IA para uso no componente Product Interests.</description>
+    <externalId>false</externalId>
+    <label>AI Product Interests</label>
+    <length>32768</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

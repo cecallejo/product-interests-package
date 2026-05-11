@@ -1,0 +1,89 @@
+<template>
+    <section class="root" aria-live="polite" aria-label="Produtos de interesse">
+        <div class="header-row">
+            <lightning-icon icon-name="utility:einstein" size="x-small" class="header-icon"></lightning-icon>
+            <p class="header-title">Produtos de interesse</p>
+        </div>
+
+        <template lwc:if={hasRecordId}>
+            <template lwc:if={loading}>
+                <div class="state-block">
+                    <lightning-spinner alternative-text="A carregar" size="medium"></lightning-spinner>
+                </div>
+            </template>
+
+            <template lwc:elseif={noCaseLinkedForSession}>
+                <div class="state-block state-empty">
+                    <lightning-icon icon-name="utility:link" size="small" class="empty-icon"></lightning-icon>
+                    <p class="empty-title">Sem caso associado</p>
+                    <p class="empty-sub">
+                        Esta sessao de mensagens nao esta ligada a um caso. Associe um caso para exibir os produtos
+                        de interesse.
+                    </p>
+                </div>
+            </template>
+
+            <template lwc:elseif={noCaseLinkedForVoiceCall}>
+                <div class="state-block state-empty">
+                    <lightning-icon icon-name="utility:link" size="small" class="empty-icon"></lightning-icon>
+                    <p class="empty-title">Sem caso associado</p>
+                    <p class="empty-sub">
+                        Esta chamada nao esta ligada a um caso valido. Associe um caso para exibir os produtos de
+                        interesse.
+                    </p>
+                </div>
+            </template>
+
+            <template lwc:elseif={noContactLinkedForContext}>
+                <div class="state-block state-empty">
+                    <lightning-icon icon-name="utility:user" size="small" class="empty-icon"></lightning-icon>
+                    <p class="empty-title">Sem contato associado</p>
+                    <p class="empty-sub">
+                        O caso relacionado nao possui contato. Associe um contato ao caso para ver os produtos de
+                        interesse.
+                    </p>
+                </div>
+            </template>
+
+            <template lwc:elseif={hasDisplayError}>
+                <div class="state-block state-error" role="alert">
+                    <lightning-icon
+                        icon-name="utility:error"
+                        size="small"
+                        variant="error"
+                        class="slds-m-right_x-small"
+                    ></lightning-icon>
+                    <span>{errorMessage}</span>
+                </div>
+            </template>
+
+            <template lwc:elseif={interests.length}>
+                <ul class="tag-list">
+                    <template for:each={interestRows} for:item="row">
+                        <li key={row.key} class="tag-item">
+                            <span class="tag-pill">{row.label}</span>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+
+            <template lwc:else>
+                <div class="state-block state-empty">
+                    <lightning-icon icon-name="utility:sparkles" size="small" class="empty-icon"></lightning-icon>
+                    <p class="empty-title">Sem produtos de interesse</p>
+                    <p class="empty-sub">Quando o campo configurado tiver dados, as etiquetas aparecerao automaticamente.</p>
+                </div>
+            </template>
+        </template>
+
+        <template lwc:else>
+            <div class="state-block state-empty">
+                <p class="empty-title">Sem registro associado</p>
+                <p class="empty-sub">
+                    Adicione este componente a pagina de registro de <strong>MessagingSession</strong>,
+                    <strong>VoiceCall</strong> ou <strong>Contact</strong>.
+                </p>
+            </div>
+        </template>
+    </section>
+</template>
