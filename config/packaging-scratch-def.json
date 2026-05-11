@@ -1,7 +1,7 @@
 {
   "orgName": "Product Interests Packaging",
   "edition": "Enterprise",
-  "features": ["EnableSetPasswordInApi", "ServiceCloudVoice", "Agentforce"],
+  "features": ["EnableSetPasswordInApi"],
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true

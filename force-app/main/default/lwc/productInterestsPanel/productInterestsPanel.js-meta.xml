@@ -9,11 +9,6 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
-            <objects>
-                <object>Contact</object>
-                <object>MessagingSession</object>
-                <object>VoiceCall</object>
-            </objects>
             <property
                 name="contactFieldApiName"
                 type="String"

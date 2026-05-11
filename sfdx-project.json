@@ -14,6 +14,11 @@
     }
   ],
   "name": "Product_Interests",
+  "packageAliases": {
+    "ProductInterests": "0HoHp000000bn0wKAA",
+    "Product Interests": "0HoHp000000bn0wKAA",
+    "ProductInterests@1.0.0-1": "04tHp000001Rd9gIAC"
+  },
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "66.0"
