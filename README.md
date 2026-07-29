@@ -69,25 +69,37 @@ O componente pode ser adicionado a páginas de registro dos seguintes objetos:
 
 ---
 
-## Pré-requisitos
+## Instalação rápida
 
-- Salesforce CLI (`sf`) instalado
-- Dev Hub habilitado na org de destino
-- Perfil com permissão de leitura no campo `Contact.AI_Product_Interests__c`
+Clique no botão correspondente ao tipo da sua org:
+
+[![Instalar em Produção ou Developer](https://img.shields.io/badge/Instalar%20em-Produção%20%2F%20Developer-00A1E0?style=for-the-badge&logo=salesforce&logoColor=white)](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tHp000001Rd9gIAC)
+[![Instalar em Sandbox](https://img.shields.io/badge/Instalar%20em-Sandbox-6DB3E8?style=for-the-badge&logo=salesforce&logoColor=white)](https://test.salesforce.com/packaging/installPackage.apexp?p0=04tHp000001Rd9gIAC)
+
+> O Salesforce abrirá a tela de instalação do pacote. Escolha o perfil de acesso e clique em **Instalar**.
+
+**URLs diretas:**
+- Produção / Developer Org: `https://login.salesforce.com/packaging/installPackage.apexp?p0=04tHp000001Rd9gIAC`
+- Sandbox: `https://test.salesforce.com/packaging/installPackage.apexp?p0=04tHp000001Rd9gIAC`
 
 ---
 
-## Instalação
+## Pré-requisitos
 
-### Opção 1 — Instalar via URL de pacote (recomendado)
+- Perfil com permissão de leitura no campo `Contact.AI_Product_Interests__c`
+- Salesforce CLI (`sf`) instalado — apenas para instalação via terminal ou deploy via source
 
-Use o script de instalação disponível neste repositório:
+---
+
+## Instalação via terminal (alternativo)
+
+### Opção 1 — Script automatizado
 
 ```bash
 ./install.sh <org-alias>
 ```
 
-Ou instale manualmente com a versão mais recente do pacote:
+### Opção 2 — Comando sf
 
 ```bash
 sf package install \
@@ -97,7 +109,7 @@ sf package install \
   --wait 10
 ```
 
-### Opção 2 — Deploy via source (desenvolvimento)
+### Opção 3 — Deploy via source (desenvolvimento)
 
 ```bash
 # 1. Clone o repositório
